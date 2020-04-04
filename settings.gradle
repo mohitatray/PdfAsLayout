@@ -1,0 +1,3 @@
+rootProject.name='PdfAsLayout'
+include ':demo'
+include ':library'

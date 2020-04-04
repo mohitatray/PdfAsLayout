@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PdfAsLayout</string>
+    <string name="generate_pdf">Generate PDF</string>
+</resources>
