@@ -1,34 +1,40 @@
 package com.mohitatray.pdfaslayout.demo
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextPaint
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.mohitatray.pdfaslayout.MyPdfDocument
+import com.mohitatray.pdfaslayout.demo.databinding.ActivityMainBinding
 import com.mohitatray.pdfaslayout.layouts.Text
 import com.mohitatray.pdfaslayout.pageitem.Content
-import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.io.FileOutputStream
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
+    @SuppressLint("IntentReset")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        button_generate_pdf.setOnClickListener {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        binding.buttonGeneratePdf.setOnClickListener {
 
             // Define PDF content
             val pdfContent = listOf(Content(Text("Hello PdfAsLayout!", TextPaint())))
 
             // Build PDF
             val pdfDocument = MyPdfDocument(
-                500, // PDF width
-                800, // PDF height
-                null, // Header content
-                null, // Footer content
-                pdfContent // Main PDF content
+                pageWidth = 500, // PDF width
+                pageHeight = 800, // PDF height
+                headerContent = null, // Header content
+                footerContent = null, // Footer content
+                pageItems = pdfContent // Main PDF content
             )
 
             // Write PDF to a file in cache

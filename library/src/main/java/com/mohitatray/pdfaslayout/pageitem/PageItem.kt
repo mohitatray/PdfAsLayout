@@ -10,7 +10,7 @@ class Content(
     val height: Int = DEFAULT_VALUE
 ) : PageItem() {
     companion object {
-        val DEFAULT_VALUE = -1
+        const val DEFAULT_VALUE = -1
     }
 }
 

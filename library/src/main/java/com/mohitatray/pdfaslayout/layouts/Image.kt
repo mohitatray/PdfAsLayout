@@ -6,7 +6,7 @@ import android.os.Build
 import androidx.annotation.DrawableRes
 import com.mohitatray.pdfaslayout.Printer
 
-class Image(val drawable: Drawable) : Layout() {
+class Image(private val drawable: Drawable) : Layout() {
 
     @Suppress("DEPRECATION")
     constructor(context: Context, @DrawableRes drawableRes: Int) : this(
